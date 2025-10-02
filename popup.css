@@ -1,0 +1,275 @@
+body {
+    font-family: Arial, sans-serif;
+    width: 250px;
+    padding: 20px;
+    margin: 0;
+    background-color: #ffffff; /* Brighter white for light mode */
+    color: #222; /* Darker text for contrast */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+h2 {
+    font-size: 3.5em;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #ff000082;
+    font-family: 'Dancing Script', cursive;
+    background-image: url('gameover.gif'); /* Your GIF path */
+    background-size: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent for readability */
+    padding: 15px 35px; /* Increased padding for GIF */
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Enhance text contrast */
+}
+.dark-mode h2 {
+    background-color: rgba(0, 0, 0, 0.5); /* Darker overlay for dark mode */
+}
+h3 {
+    font-size: 1.2em;
+    text-align: center;
+    margin: 10px 0;
+    color: #2c3e50; /* Darker for light mode visibility */
+}
+.version {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1em;
+    color: #2c82c9; /* Match button color */
+}
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    font-size: 1em;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    background-color: #2c82c9; /* Bolder blue */
+    color: #fff;
+}
+button:hover {
+    background-color: #256fad; /* Brighter hover */
+}
+.whitelist-container {
+    max-height: 150px;
+    overflow-y: auto;
+    width: 100%;
+    margin-top: 20px;
+    min-height: 50px;
+    border: 1px solid #999; /* Darker border */
+}
+.whitelist-container.hidden {
+    display: none !important;
+}
+.whitelist-container.visible {
+    display: block !important;
+}
+.log-container {
+    max-height: 150px;
+    overflow-y: auto;
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid #999; /* Darker border */
+}
+.log-container.hidden {
+    display: none !important;
+}
+.log-container.visible {
+    display: block !important;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    background-color: #d9dfe3; /* Slightly darker for contrast */
+    padding: 10px;
+    border-radius: 4px;
+    border: 2px solid transparent;
+}
+.log-entry {
+    flex-direction: column;
+    align-items: flex-start;
+}
+.log-entry p {
+    margin: 2px 0;
+    font-size: 0.9em;
+    color: #222; /* Match body text */
+}
+.log-entry strong {
+    color: #e74c3c; /* Keep red for emphasis */
+}
+li button {
+    padding: 5px 12px;
+    font-size: 0.9em;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#typewriter {
+    border-right: 2px solid #0f0;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    display: block;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+    background-color: black;
+    padding: 2px;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    max-height: 400px;
+    font-size: 10px;
+}
+.made-by {
+    position: sticky;
+    top: 0;
+    background-color: #111;
+    color: #0f0;
+    padding: 2px;
+    z-index: 1;
+    border-bottom: 1px solid #333;
+}
+.script-content {
+    color: #0f0;
+    padding: 2px 0;
+}
+.line {
+    color: inherit;
+}
+.typewriter-green {
+    color: #0f0;
+}
+.typewriter-red {
+    color: #e74c3c;
+}
+.dark-mode {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+}
+.dark-mode li {
+    background-color: #333;
+}
+.dark-mode .log-entry {
+    background-color: #333;
+}
+.dark-mode .made-by {
+    background-color: #222;
+    border-bottom: 1px solid #444;
+}
+.dark-mode h3 {
+    color: #ffffff; /* Restore white for dark mode */
+}
+.dark-mode .version {
+    color: #3498db; /* Original blue */
+}
+.dark-mode button {
+    background-color: #3498db;
+}
+.dark-mode button:hover {
+    background-color: #2980b9;
+}
+.dark-mode .whitelist-container,
+.dark-mode .log-container {
+    border: 1px solid #ccc; /* Original border */
+}
+.dark-mode .log-entry p {
+    color: #f1f1f1; /* Match dark mode text */
+}
+.dark-mode .log-entry strong {
+    color: #ff4b4b; /* Original red */
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal.hidden {
+    display: none !important;
+}
+.modal.visible {
+    display: flex !important;
+}
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    width: 200px;
+}
+.modal-content input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #999; /* Darker border */
+    border-radius: 4px;
+    font-size: 1em;
+    user-select: none;
+}
+.modal-content button {
+    padding: 8px 16px;
+    margin: 5px;
+}
+.dark-mode .modal-content {
+    background-color: #333;
+    color: #f1f1f1;
+}
+.dark-mode .modal-content input {
+    background-color: #444;
+    color: #f1f1f1;
+    border-color: #555;
+}
+.checkbox-group {
+    margin-top: 10px;
+    width: 100%;
+}
+.checkbox-group.hidden {
+    display: none !important;
+}
+.checkbox-group.visible {
+    display: block !important;
+}
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.checkbox-group input[type="checkbox"] {
+    margin-right: 5px;
+}
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    font-size: 1em;
+}
+.hidden {
+    display: none !important;
+}
+.visible {
+    display: block !important;
+}

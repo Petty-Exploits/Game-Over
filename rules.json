@@ -1,0 +1,150 @@
+// used for hard url blocking, will override everything else including whitelist
+[
+  {
+      "id": 1,
+      "priority": 2,
+      "action": {
+          "type": "block",
+          "block": {
+              
+          }
+      },
+      "condition": {
+          "urlFilter": "file://*/*.html",
+          "resourceTypes": ["main_frame"]
+      }
+  },
+  {
+      "id": 2,
+      "priority": 2,
+      "action": {
+          "type": "block",
+          "block": {
+              
+          }
+      },
+      "condition": {
+          "urlFilter": "file://*/*.mhtml",
+          "resourceTypes": ["main_frame"]
+      }
+  },
+  {
+      "id": 3,
+      "priority": 2,
+      "action": { "type": "block" },
+      "condition": {
+          "urlFilter": "wss://*eaglerrelay.glitch.me/*",
+          "resourceTypes": ["websocket"]
+      }
+  },
+  {
+      "id": 4,
+      "priority": 2,
+      "action": { "type": "block" },
+      "condition": {
+          "urlFilter": "wss://*relay.shhnowisnottheti.me/*",
+          "resourceTypes": ["websocket"]
+      }
+  },
+  {
+      "id": 5,
+      "priority": 2,
+      "action": { "type": "block" },
+      "condition": {
+          "urlFilter": "wss://*relay.deev.is/*",
+          "resourceTypes": ["websocket"]
+      }
+  },
+  {
+      "id": 6,
+      "priority": 2,
+      "action": { "type": "block" },
+      "condition": {
+          "urlFilter": "wss://*relay.lax1dude.net/*",
+          "resourceTypes": ["websocket"]
+      }
+  },
+  {
+      "id": 7,
+      "priority": 2,
+      "action": { "type": "block" },
+      "condition": {
+          "urlFilter": "wss://*.replit.dev/*",
+          "resourceTypes": ["websocket"]
+      }
+  },
+  
+  {
+      "id": 9,
+      "priority": 2,
+      "action": {
+          "type": "block",
+          "block": {
+              
+          }
+      },
+      "condition": {
+          "urlFilter": "*w3schools*",
+          "resourceTypes": ["main_frame", "sub_frame"]
+      }
+  },
+
+  {
+    "id": 10,
+    "priority": 2,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "BasketBros.js",
+      "resourceTypes": ["script"]
+    }
+},
+
+{
+    "id": 11,
+    "priority": 2,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "*https://noredink.com.de/*",
+          "resourceTypes": ["main_frame", "sub_frame"]
+    }
+},
+{
+    "id": 12,
+    "priority": 2,
+    "action": {
+        "type": "block"
+    },
+    "condition": {
+        "urlFilter": "*://*.com.de/*",
+        "resourceTypes": ["main_frame", "sub_frame"]
+    }
+},
+{
+    "id": 13,
+    "priority": 2,
+    "action": {
+        "type": "block"
+    },
+    "condition": {
+        "urlFilter": "*://www.cs2n.org/*",
+        "resourceTypes": ["main_frame", "sub_frame"]
+    }
+},
+
+{
+    "id": 14,
+    "priority": 2,
+    "action": {
+        "type": "block"
+    },
+    "condition": {
+        "urlFilter": "*://www.flyingkiwis.co.nz/*",
+        "resourceTypes": ["main_frame", "sub_frame"]
+    }
+}
+
+]

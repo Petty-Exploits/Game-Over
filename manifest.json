@@ -1,0 +1,53 @@
+{
+    "manifest_version": 3,
+    "name": "Game Over",
+    "version": "3.3.7",
+    "description": "Blocks local .HTML files, fingerprints for Game & proxy code, nukes some wss connections, made for school environments.",
+    "author": "Petty",
+    "permissions": [
+        "declarativeNetRequest",
+        "declarativeNetRequestFeedback",
+        "storage",
+        "scripting",
+        "activeTab",
+        "tabs",
+        "webNavigation",
+        "clipboardWrite"
+    ],
+    "host_permissions": [
+        "<all_urls>",
+        "file://*/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"],
+            "run_at": "document_start",
+            "all_frames": true
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "128": "icon128.png"
+    },
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "ruleset_1",
+                "enabled": true,
+                "path": "rules.json"
+            }
+        ]
+    },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["gameover.gif"],
+            "matches": ["<all_urls>"]
+        }
+    ]
+}

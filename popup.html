@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+    <link rel="stylesheet" href="popup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h2>Game Over</h2>
+    <div class="version">Version 3.3.7</div>
+    <h3>Chat are we cooked?</h3>
+
+    <button id="adminLogin">Admin Login</button>
+    <button id="viewWhitelist" class="hidden">View Whitelist</button>
+    <button id="addUrl" class="hidden">Add URL</button>
+    <button id="darkModeToggle">Toggle Dark Mode</button>
+
+    <div class="checkbox-group hidden">
+        <label class="checkbox-label">
+            <input type="checkbox" id="fingerprinting-enabled" checked>
+            Enable Fingerprinting (Eaglercraft Detection)
+        </label>
+        <label class="checkbox-label">
+            <input type="checkbox" id="embed-blocking-enabled" checked>
+            Enable Suspicious src Blocking
+        </label>
+        <label class="checkbox-label">
+            <input type="checkbox" id="wss-blocking-enabled" checked>
+            Enable WebSocket (WSS) Blocking
+        </label>
+        <label class="checkbox-label">
+            <input type="checkbox" id="copy-paste-enabled" checked>
+            Enable Copy/Paste Blocking
+        </label>
+    </div>
+
+    <div class="whitelist-container hidden">
+        <ul id="whitelist"></ul>
+    </div>
+
+    <div id="typewriter"></div>
+
+    <div class="log-container hidden">
+        <h3>Blocked Logs</h3>
+        <ul id="logList"></ul>
+        <button id="clearLogs">Clear Logs</button>
+    </div>
+
+    <div id="adminModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Admin Login</h3>
+            <input type="password" id="adminPassword" placeholder="Enter admin password">
+            <button id="submitPassword">Submit</button>
+            <button id="cancelPassword">Cancel</button>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
