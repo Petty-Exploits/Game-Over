@@ -1,0 +1,22 @@
+/* Ensure the CSS only targets Google Search AI Overview components */
+
+/* Main AI Overview container (scoped to Google's search results) */
+div.WAUd4.OZ9ddf {
+  display: none !important;
+}
+
+/* AI content blocks and wrappers specific to Google's search */
+div.FR7ZSc.NQYJvc.btku5b.in7vHe > div.SlP8xc.VDgVie.niO4u {
+  display: none !important;
+}
+
+/* AI-generated sections and follow-ups */
+div.C6AK7c.XVMlrc > div.mVH5Fc > div.R1QWuf {
+  display: none !important;
+}
+
+/* AI Mode button/tab (specific to Google's interface) */
+div[aria-label="AI Mode"],
+div[role="tab"][data-tab-id="ai"] {
+  display: none !important;
+}
