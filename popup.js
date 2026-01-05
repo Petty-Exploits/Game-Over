@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const embedBlockingCheckbox = document.getElementById("embed-blocking-enabled");
     const wssBlockingCheckbox = document.getElementById("wss-blocking-enabled");
     const copyPasteCheckbox = document.getElementById("copy-paste-enabled");
+    // NEW: ROM checkbox
+    const romCheckbox = document.getElementById("rom-enabled");
     const logContainer = document.querySelector(".log-container");
     const logList = document.getElementById("logList");
     const clearLogsButton = document.getElementById("clearLogs");
@@ -27,12 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!whitelistContainer || !whitelistElement || !adminLoginButton || !viewWhitelist || !addUrl ||
         !adminModal || !adminPasswordInput || !submitPasswordButton || !cancelPasswordButton ||
         !checkboxGroup || !fingerprintingCheckbox || !embedBlockingCheckbox || !wssBlockingCheckbox || 
-        !copyPasteCheckbox || !logContainer || !logList || !clearLogsButton) {
+        !copyPasteCheckbox || !romCheckbox || !logContainer || !logList || !clearLogsButton) {  // NEW: Include romCheckbox
         console.error('DOM elements missing');
         return;
     }
 
-    const storedPasswordHash = "f2d6cbdc77e822bb31f79b1afda42155872a42d54489a09dee0cdf9b262f53d9";  //admin password sha256 to hash your own
+    const storedPasswordHash = "f2d6cbdc77e822bb31f79b1afda42155872a42d54489a09dee0cdf9b262f53d9";
 
     adminPasswordInput.addEventListener("copy", (e) => e.preventDefault());
     adminPasswordInput.addEventListener("cut", (e) => e.preventDefault());
@@ -104,12 +106,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 fingerprintingEnabled: true,
                 embedBlockingEnabled: true,
                 wssBlockingEnabled: true,
-                copyPasteEnabled: true
+                copyPasteEnabled: true,
+                romEnabled: true  // NEW: Default to enabled
             };
             fingerprintingCheckbox.checked = settings.fingerprintingEnabled;
             embedBlockingCheckbox.checked = settings.embedBlockingEnabled;
             wssBlockingCheckbox.checked = settings.wssBlockingEnabled;
             copyPasteCheckbox.checked = settings.copyPasteEnabled;
+            romCheckbox.checked = settings.romEnabled;  // NEW
             console.debug("loadSettings:", settings);
         });
     }
@@ -119,7 +123,8 @@ document.addEventListener("DOMContentLoaded", () => {
             fingerprintingEnabled: fingerprintingCheckbox.checked,
             embedBlockingEnabled: embedBlockingCheckbox.checked,
             wssBlockingEnabled: wssBlockingCheckbox.checked,
-            copyPasteEnabled: copyPasteCheckbox.checked
+            copyPasteEnabled: copyPasteCheckbox.checked,
+            romEnabled: romCheckbox.checked  // NEW
         };
         chrome.storage.local.set({ settings });
         console.debug("saveSettings:", settings);
@@ -166,6 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
     embedBlockingCheckbox.addEventListener("change", saveSettings);
     wssBlockingCheckbox.addEventListener("change", saveSettings);
     copyPasteCheckbox.addEventListener("change", saveSettings);
+    // NEW: ROM event listener
+    romCheckbox.addEventListener("change", saveSettings);
 
     function renderWhitelist() {
         chrome.storage.local.get(["whitelist"], (result) => {
@@ -322,7 +329,7 @@ function typewriterEffect() {
             displayBeeMovieScript();
         }, 3000);
     }
-// this is the crutch holding the whole script together, without it nothing else works
+
     function displayBeeMovieScript() {
         const beeMovieScript = `
 Loading Bee Movie Script . . .
