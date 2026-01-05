@@ -1,0 +1,46 @@
+/* === GOOGLE DOODLE FULL GAME OVERLAY BLOCKER === */
+
+/* 1. Main overlay container */
+div[jsname="lJ2blc"].XZ8iK,
+div[jsname="lJ2blc"] {
+    display: none !important;
+    visibility: hidden !important;
+    z-index: -9999 !important;
+    pointer-events: none !important;
+}
+
+/* 2. Game iframe */
+iframe[jsname="V42h1d"],
+iframe.YPU6Hf,
+iframe[src*="doodle"],
+iframe[src*="fnbx"] {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* 3. Close button */
+span[jsname="tqp7ud"],
+.jl91wd {
+    display: none !important;
+}
+
+/* 4. Loading spinner */
+g-white-loading-icon,
+.xdqLmd {
+    display: none !important;
+}
+
+/* 5. Fallback: any high z-index overlay on Google */
+div[style*="z-index: 10000"],
+div[style*="isolation: isolate"] {
+    display: none !important;
+}
+
+/* 6. Canvas fallback (older games) */
+canvas[jsname="UzWXSb"],
+canvas.cer0Bd,
+div[jsname="JI3Aqc"] {
+    display: none !important;
+}
